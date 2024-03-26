@@ -1,4 +1,4 @@
-<section class="bg-blue-500 sticky top-0">
+<section class="bg-blue-500 sticky top-0 z-50">
     <div class="container mx-auto px-2 lg:px-12 flex flex-col space-y-2">
         <div class="flex justify-between">
             <div class="flex gap-4 text-14 font-medium text-white capitalize p-1">

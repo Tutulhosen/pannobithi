@@ -1,3 +1,3 @@
 <x-user.layout>
-    this is home page.
+    <x-user.home.hero />
 </x-user.layout>
