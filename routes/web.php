@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Frontend\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+Route::get('/', [FrontendController::class, 'home'])->name('home');
+
+Route::name('category.')->prefix('category')->group(function () {
+    Route::get('/men/{id}', [FrontendController::class, 'showSubCategory'])->name('men');
 });

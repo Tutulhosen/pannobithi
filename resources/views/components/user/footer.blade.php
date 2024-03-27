@@ -1,4 +1,4 @@
-<footer class="bg-slate-200">
+<footer class="bg-slate-200 mt-5">
     <div class="container mx-auto px-2 lg:px-12 flex flex-col space-y-2">
         <div class="flex justify-between">
             <div class="flex gap-4 text-14 font-medium text-slate-900 capitalize p-1">

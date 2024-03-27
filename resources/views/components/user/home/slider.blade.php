@@ -2,7 +2,7 @@
 
     .swiper {
       width: 100%;
-      height: 60vh;
+      height: 50vh;
     }
 
     .swiper-slide {
@@ -27,15 +27,15 @@
 <!-- Swiper -->
 <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-        <div class="swiper-slide">Slide 4</div>
-        <div class="swiper-slide">Slide 5</div>
-        <div class="swiper-slide">Slide 6</div>
-        <div class="swiper-slide">Slide 7</div>
-        <div class="swiper-slide">Slide 8</div>
-        <div class="swiper-slide">Slide 9</div>
+        <a href="#" class="swiper-slide">Slide 1</a>
+        <a href="#" class="swiper-slide">Slide 2</a>
+        <a href="#" class="swiper-slide">Slide 3</a>
+        <a href="#" class="swiper-slide">Slide 4</a>
+        <a href="#" class="swiper-slide">Slide 5</a>
+        <a href="#" class="swiper-slide">Slide 6</a>
+        <a href="#" class="swiper-slide">Slide 7</a>
+        <a href="#" class="swiper-slide">Slide 8</a>
+        <a href="#" class="swiper-slide">Slide 9</a>
     </div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
