@@ -16,9 +16,9 @@
             </a>
         </div>
         <div class="flex items-center pb-3 space-x-4">
-            <div class="w-[12%]">
+            <a href="{{ route('home') }}" class="w-[12%]">
                 <img class="w-36 h-10 rounded-full" src="{{ asset('logo.jpg') }}" alt="Ponno Bithi">
-            </div>
+            </a>
             <div class="w-[64%]">
                 <form action="#" class="bg-white p-1 w-full flex rounded-lg">
                     <input type="text" placeholder="Search in PonnoBithi" class="w-full p-1 focus:outline-none focus:ring-0 text-14 placeholder:text-gray-500">
