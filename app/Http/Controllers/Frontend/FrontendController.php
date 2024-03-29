@@ -27,4 +27,8 @@ class FrontendController extends Controller
             return view('pages.subcategory.index', ['id' => $id, 'title' => 'Kids Clothing']);
         }
     }
+
+    public function showProduct($id){
+        return view('pages.product.index', ['id' => $id]);
+    }
 }

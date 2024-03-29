@@ -21,6 +21,10 @@ Route::name('category.')->prefix('category')->group(function () {
     Route::get('/men/{id}', [FrontendController::class, 'showSubCategory'])->name('men');
 });
 
+Route::name('product.')->prefix('product')->group(function () {
+    Route::get('/show/{id}', [FrontendController::class, 'showProduct'])->name('show');
+});
+
 
 //route for admin panel
 Route::get('/admin-dashboard',[AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
