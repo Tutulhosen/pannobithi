@@ -2,7 +2,7 @@
 
 
 @section('main-content')
-<a class="btn btn-success" href="{{route('category.list')}}">Category List</a>
+<a class="btn btn-success" href="{{route('admin.category.list')}}">Category List</a>
    <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 grid-margin stretch-card">
@@ -42,32 +42,7 @@
     
 
 <script>
-    function previewImage(input) {
-        var preview = document.getElementById('img-preview');
-        preview.innerHTML = ''; // Clear previous preview
-
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                var img = document.createElement('img');
-                img.src = e.target.result;
-                img.className = 'img-fluid'; // Add any additional classes you need
-                img.style.width = '100px'; // Set width of the image
-                img.style.height = '100px'; // Set height of the image
-                preview.appendChild(img);
-                preview.style.display = 'block'; // Show the image preview
-            }
-
-            reader.readAsDataURL(input.files[0]); // Read the uploaded file as a data URL
-        }
-        
-    }
-
-    // Attach event listener to file input
-    document.getElementById('category-image').addEventListener('change', function () {
-        previewImage(this);
-    });
+    
 
     $(document).ready(function(){
         
@@ -91,7 +66,7 @@
         formData.append('_token', '{{ csrf_token() }}'); 
 
         $.ajax({
-            url: '{{ route('category.store') }}', 
+            url: '{{ route('admin.category.store') }}', 
             method: 'POST',
             data: formData,
             contentType: false, 

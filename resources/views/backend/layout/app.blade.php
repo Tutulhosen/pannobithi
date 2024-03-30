@@ -63,6 +63,34 @@
           });
       
     </script>
+    <script>
+      function previewImage(input) {
+          var preview = document.getElementById('img-preview');
+          preview.innerHTML = ''; // Clear previous preview
+
+          if (input.files && input.files[0]) {
+              var reader = new FileReader();
+
+              reader.onload = function (e) {
+                  var img = document.createElement('img');
+                  img.src = e.target.result;
+                  img.className = 'img-fluid'; // Add any additional classes you need
+                  img.style.width = '100px'; // Set width of the image
+                  img.style.height = '100px'; // Set height of the image
+                  preview.appendChild(img);
+                  preview.style.display = 'block'; // Show the image preview
+              }
+
+              reader.readAsDataURL(input.files[0]); // Read the uploaded file as a data URL
+          }
+          $('#old_img').hide();
+      }
+
+      // Attach event listener to file input
+      document.getElementById('category-image').addEventListener('change', function () {
+          previewImage(this);
+      });
+    </script>
     <script src="{{URL('https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')}}"></script>
     <!-- container-scroller -->
     <!-- plugins:js -->

@@ -2,19 +2,39 @@
 
 
 @section('main-content')
-<a class="btn btn-success" href="{{route('admin.category.list')}}">Category List</a>
+<a class="btn btn-success" href="{{route('admin.sub.cat.list')}}">Sub Category List</a>
    <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                <h2 class="card-title" style="text-align:center">Categoty Form</h2>
+                <h2 class="card-title" style="text-align:center">Sub Categoty Form</h2>
                 
                 <form class="forms-sample" id="myform">
                     @csrf
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" value="{{$category_info->name}}" placeholder="Username">
+                        <input type="text" class="form-control" id="name" value="{{$sub_category_info->name}}" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <label for="category_id">Default select</label>
+                        <select class="form-control" id="category_id" name="category_id">
+                            <option value="">--Select--</option>
+                            
+                            @foreach ($category_list as $categories)
+                                @if ($sub_category_info->category_id == $categories->id)
+                                    <?php
+                                        echo $selected= 'selected';
+                                    ?>
+                                @else
+                                    <?php
+                                        echo $selected= '';
+                                    ?>
+                                @endif
+                                <option value="{{$categories->id}}" {{$selected}}>{{$categories->name}}</option>
+                            @endforeach
+                       
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Category Image</label>
@@ -25,9 +45,9 @@
                                 <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                             </span>
                         </div>
-                        @if (!empty($category_info->image))
+                        @if (!empty($sub_category_info->image))
                             <div class="old_img" id="old_img" >
-                                <img style="height: 100px; width:100px;object-fit:cover" src="{{asset('images/categories/'.$category_info->image)}}" alt="">
+                                <img style="height: 100px; width:100px;object-fit:cover" src="{{asset('images/subcategories/'.$sub_category_info->image)}}" alt="">
                             </div>
                         @endif
                         
@@ -35,7 +55,7 @@
                             <!-- Image preview will be shown here -->
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary mr-2" id="cat_update_btn" value="{{$category_info->id}}">Submit</button>
+                    <button type="button" class="btn btn-primary mr-2" id="sub_cat_update_btn" value="{{$sub_category_info->id}}">Submit</button>
                     <button class="btn btn-dark">Cancel</button>
                 </form>
                 </div>
@@ -52,9 +72,10 @@
 
     $(document).ready(function(){
         
-        $('#cat_update_btn').on('click', function(){
+        $('#sub_cat_update_btn').on('click', function(){
         let name = $('#name').val();
         let id = $(this).val();
+        let category_id = $('#category_id').find(":selected").val();
        
         let image = $('#category-image')[0].files[0];
 
@@ -69,10 +90,11 @@
         formData.append('image', image);
         formData.append('name', name);
         formData.append('id', id);
+        formData.append('category_id', category_id);
         formData.append('_token', '{{ csrf_token() }}'); 
 
         $.ajax({
-            url: '{{ route('admin.category.update') }}', 
+            url: "{{route('admin.sub.cat.update')}}", 
             method: 'POST',
             data: formData,
             contentType: false, 

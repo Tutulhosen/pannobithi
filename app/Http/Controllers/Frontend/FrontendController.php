@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class FrontendController extends Controller
 {
@@ -26,5 +27,12 @@ class FrontendController extends Controller
         }elseif($id == 6){
             return view('pages.subcategory.index', ['id' => $id, 'title' => 'Kids Clothing']);
         }
+    }
+
+    //show sub category list
+    public function subcategoryList(){
+        $data['category_list']=DB::table('category')->get();
+        // return $data['category_list'];exit;
+        return view('backend.sub_category.list')->with($data);
     }
 }

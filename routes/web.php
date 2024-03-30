@@ -23,11 +23,32 @@ Route::name('category.')->prefix('category')->group(function () {
 
 
 //route for admin panel
-Route::get('/admin-dashboard',[AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
-Route::get('/category/list',[AdminDashboardController::class, 'categoryList'])->name('category.list');
-Route::get('/category/page',[AdminDashboardController::class, 'categoryPage'])->name('category.page');
-Route::post('/category/store',[AdminDashboardController::class, 'categoryStore'])->name('category.store');
-Route::get('/category/update/{id}',[AdminDashboardController::class, 'categoryupdatePage'])->name('category.update.page');
-Route::post('/category/update',[AdminDashboardController::class, 'categoryUpdate'])->name('category.update');
-Route::get('/category/delete/{id}',[AdminDashboardController::class, 'categoryDelete'])->name('category.delete');
-Route::get('/category/status/update/{id}',[AdminDashboardController::class, 'categoryStatusUpdate'])->name('category.status.update');
+
+//dashboard route
+Route::name('admin.dashboard.')->prefix('admin/dashboard')->group(function(){
+    Route::get('/index',[AdminDashboardController::class, 'dashboard'])->name('index');
+
+});
+// category route
+Route::name('admin.category.')->prefix('admin/category')->group(function () {
+    Route::get('/list',[AdminDashboardController::class, 'categoryList'])->name('list');
+    Route::get('/page',[AdminDashboardController::class, 'categoryPage'])->name('page');
+    Route::post('/store',[AdminDashboardController::class, 'categoryStore'])->name('store');
+    Route::get('/update/{id}',[AdminDashboardController::class, 'categoryupdatePage'])->name('update.page');
+    Route::post('/update',[AdminDashboardController::class, 'categoryUpdate'])->name('update');
+    Route::get('/delete/{id}',[AdminDashboardController::class, 'categoryDelete'])->name('delete');
+    Route::get('/status/update/{id}',[AdminDashboardController::class, 'categoryStatusUpdate'])->name('status.update');
+});
+
+
+// sub category route 
+Route::name('admin.sub.cat.')->prefix('admin/sub/cat')->group(function () {
+    Route::get('/list',[AdminDashboardController::class, 'subcategoryList'])->name('list');
+    Route::get('/create',[AdminDashboardController::class, 'subCatCreate'])->name('create');
+    Route::post('/store',[AdminDashboardController::class, 'subcategoryStore'])->name('store');
+    Route::get('/update/{id}',[AdminDashboardController::class, 'subcategoryupdatePage'])->name('update.page');
+    Route::post('/update',[AdminDashboardController::class, 'subcategoryUpdate'])->name('update');
+    Route::get('/delete/{id}',[AdminDashboardController::class, 'subcategoryDelete'])->name('delete');
+    Route::get('/status/update/{id}',[AdminDashboardController::class, 'subcategoryStatusUpdate'])->name('status.update');
+    
+});
