@@ -66,7 +66,7 @@
       </li>
       
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{route('category.page')}}">
+        <a class="nav-link" href="{{route('category.list')}}">
           <span class="menu-icon">
             <i class="mdi mdi-android-studio"></i>
           </span>
