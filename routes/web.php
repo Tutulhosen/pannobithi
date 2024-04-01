@@ -27,5 +27,32 @@ Route::name('product.')->prefix('product')->group(function () {
 
 
 //route for admin panel
-Route::get('/admin-dashboard',[AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
-Route::get('/category/page',[AdminDashboardController::class, 'categoryPage'])->name('category.page');
+
+//dashboard route
+Route::name('admin.dashboard.')->prefix('admin/dashboard')->group(function(){
+    Route::get('/index',[AdminDashboardController::class, 'dashboard'])->name('index');
+
+});
+// category route
+Route::name('admin.category.')->prefix('admin/category')->group(function () {
+    Route::get('/list',[AdminDashboardController::class, 'categoryList'])->name('list');
+    Route::get('/page',[AdminDashboardController::class, 'categoryPage'])->name('page');
+    Route::post('/store',[AdminDashboardController::class, 'categoryStore'])->name('store');
+    Route::get('/update/{id}',[AdminDashboardController::class, 'categoryupdatePage'])->name('update.page');
+    Route::post('/update',[AdminDashboardController::class, 'categoryUpdate'])->name('update');
+    Route::get('/delete/{id}',[AdminDashboardController::class, 'categoryDelete'])->name('delete');
+    Route::get('/status/update/{id}',[AdminDashboardController::class, 'categoryStatusUpdate'])->name('status.update');
+});
+
+
+// sub category route 
+Route::name('admin.sub.cat.')->prefix('admin/sub/cat')->group(function () {
+    Route::get('/list',[AdminDashboardController::class, 'subcategoryList'])->name('list');
+    Route::get('/create',[AdminDashboardController::class, 'subCatCreate'])->name('create');
+    Route::post('/store',[AdminDashboardController::class, 'subcategoryStore'])->name('store');
+    Route::get('/update/{id}',[AdminDashboardController::class, 'subcategoryupdatePage'])->name('update.page');
+    Route::post('/update',[AdminDashboardController::class, 'subcategoryUpdate'])->name('update');
+    Route::get('/delete/{id}',[AdminDashboardController::class, 'subcategoryDelete'])->name('delete');
+    Route::get('/status/update/{id}',[AdminDashboardController::class, 'subcategoryStatusUpdate'])->name('status.update');
+    
+});
