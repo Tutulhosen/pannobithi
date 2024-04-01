@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\AdminDashboardController;
+use App\Http\Controllers\backend\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontendController;
 
@@ -49,6 +50,18 @@ Route::name('admin.category.')->prefix('admin/category')->group(function () {
 Route::name('admin.sub.cat.')->prefix('admin/sub/cat')->group(function () {
     Route::get('/list',[AdminDashboardController::class, 'subcategoryList'])->name('list');
     Route::get('/create',[AdminDashboardController::class, 'subCatCreate'])->name('create');
+    Route::post('/store',[AdminDashboardController::class, 'subcategoryStore'])->name('store');
+    Route::get('/update/{id}',[AdminDashboardController::class, 'subcategoryupdatePage'])->name('update.page');
+    Route::post('/update',[AdminDashboardController::class, 'subcategoryUpdate'])->name('update');
+    Route::get('/delete/{id}',[AdminDashboardController::class, 'subcategoryDelete'])->name('delete');
+    Route::get('/status/update/{id}',[AdminDashboardController::class, 'subcategoryStatusUpdate'])->name('status.update');
+    
+});
+
+// sub category route 
+Route::name('admin.product.')->prefix('admin/product')->group(function () {
+    Route::get('/list',[ProductController::class, 'productList'])->name('list');
+    Route::get('/create',[ProductController::class, 'productCreate'])->name('create');
     Route::post('/store',[AdminDashboardController::class, 'subcategoryStore'])->name('store');
     Route::get('/update/{id}',[AdminDashboardController::class, 'subcategoryupdatePage'])->name('update.page');
     Route::post('/update',[AdminDashboardController::class, 'subcategoryUpdate'])->name('update');

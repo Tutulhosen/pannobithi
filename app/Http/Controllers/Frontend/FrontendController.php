@@ -29,10 +29,7 @@ class FrontendController extends Controller
         }
     }
 
-    //show sub category list
-    public function subcategoryList(){
-        $data['category_list']=DB::table('category')->get();
-        // return $data['category_list'];exit;
-        return view('backend.sub_category.list')->with($data);
+    public function showProduct($id){
+        return view('pages.product.index', ['id' => $id]);
     }
 }

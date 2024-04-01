@@ -83,6 +83,15 @@
           <span class="menu-title">Sub Category</span>
         </a>
       </li>
+
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{route('admin.product.list')}}">
+          <span class="menu-icon">
+            <i class="mdi mdi-android-studio"></i>
+          </span>
+          <span class="menu-title">Product</span>
+        </a>
+      </li>
       
     </ul>
   </nav>
