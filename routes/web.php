@@ -62,7 +62,7 @@ Route::name('admin.sub.cat.')->prefix('admin/sub/cat')->group(function () {
 Route::name('admin.product.')->prefix('admin/product')->group(function () {
     Route::get('/list',[ProductController::class, 'productList'])->name('list');
     Route::get('/create',[ProductController::class, 'productCreate'])->name('create');
-    Route::post('/store',[AdminDashboardController::class, 'subcategoryStore'])->name('store');
+    Route::post('/store',[ProductController::class, 'productStore'])->name('store');
     Route::get('/update/{id}',[AdminDashboardController::class, 'subcategoryupdatePage'])->name('update.page');
     Route::post('/update',[AdminDashboardController::class, 'subcategoryUpdate'])->name('update');
     Route::get('/delete/{id}',[AdminDashboardController::class, 'subcategoryDelete'])->name('delete');
