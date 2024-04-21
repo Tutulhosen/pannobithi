@@ -10,7 +10,9 @@ class FrontendController extends Controller
 {
     
     public function home(){
-        return view('home');
+        $data['slider']=DB::table('sliders')->where('status', 1)->get();
+        
+        return view('home')->with($data);
     }
     
     public function showSubCategory($id){

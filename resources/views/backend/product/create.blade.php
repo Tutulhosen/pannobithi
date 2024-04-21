@@ -46,7 +46,7 @@
                            
                             <div class="form-group">
                                 <label>Size</label>
-                                <select class="js-example-basic-multiple" multiple="multiple" style="width:100%">
+                                <select class="js-example-basic-multiple " multiple="multiple" style="width:100%">
                                   <option value="S"></option>
                                   <option value="M">M</option>
                                   <option value="L">L</option>
@@ -71,6 +71,10 @@
                             <div class="form-group">
                                 <label for="discount">Discount</label>
                                 <input type="number" class="form-control" id="discount" placeholder="discount">
+                            </div>
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <input type="number" class="form-control" id="quantity" placeholder="quantity">
                             </div>
                             <div class="form-group">
                                 <label>Thumbnail Image</label>
@@ -137,8 +141,47 @@
             var description = $('#description').val();
             var price = $('#price').val();
             var discount = $('#discount').val();
+            var quantity = $('#quantity').val();
             var thumbnailImage = $('#category-image')[0].files[0]; // Assuming you're uploading a single thumbnail image
             var galleryImages = $('#gallery')[0].files; // Assuming you're uploading multiple gallery images
+            
+            if (product_code == '') {
+                showToast('Enter The Product Code', 'error');
+                return; 
+            }
+            if (title == '') {
+                showToast('Enter A Product Title', 'error');
+                return; 
+            }
+
+            if (category_id == '') {
+                showToast('Select A Category', 'error');
+                return; 
+            }
+            if (sub_category_id == '') {
+                showToast('Select A Sub Category', 'error');
+                return; 
+            }
+            if (size == '') {
+                showToast('Select A Product Size', 'error');
+                return; 
+            }
+            if (description == '') {
+                showToast('Enter Some Product Description', 'error');
+                return; 
+            }
+            if (price == '') {
+                showToast('Enter The Product Price', 'error');
+                return; 
+            }
+            if (thumbnailImage==undefined) {
+                showToast('Select A Thumbnail Image', 'error');
+                return; 
+            }
+            if (galleryImages.length == 0) {
+                showToast('Select Some Gallery Image', 'error');
+                return; 
+            }
 
             // Create a FormData object to send data with AJAX
             var formData = new FormData();
@@ -150,6 +193,7 @@
             formData.append('description', description);
             formData.append('price', price);
             formData.append('discount', discount);
+            formData.append('quantity', quantity);
             formData.append('thumbnail_image', thumbnailImage);
             for (var i = 0; i < galleryImages.length; i++) {
                 formData.append('gallery_images[]', galleryImages[i]);
@@ -166,7 +210,8 @@
                 success: function(response) {
                     if (response.status == true) {
                         $('.img_prev').hide();
-                        $("#myform")[0].reset();
+                        $('.gallery_prev').hide();
+                        $("#myform")[0].reset(); 
                         showToast(response.success, 'success');
                     }
                 },

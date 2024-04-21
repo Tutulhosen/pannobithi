@@ -22,20 +22,19 @@
     }
   </style>
 
+<?php
+  $sliders=DB::table('sliders')->where('status',1)->get();
+?>
 
 
 <!-- Swiper -->
 <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-        <a href="#" class="swiper-slide">Slide 1</a>
-        <a href="#" class="swiper-slide">Slide 2</a>
-        <a href="#" class="swiper-slide">Slide 3</a>
-        <a href="#" class="swiper-slide">Slide 4</a>
-        <a href="#" class="swiper-slide">Slide 5</a>
-        <a href="#" class="swiper-slide">Slide 6</a>
-        <a href="#" class="swiper-slide">Slide 7</a>
-        <a href="#" class="swiper-slide">Slide 8</a>
-        <a href="#" class="swiper-slide">Slide 9</a>
+      @foreach ($sliders as $slider)
+      <a href="#" class="swiper-slide">Slide 1</a>
+          
+      @endforeach
+        
     </div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>

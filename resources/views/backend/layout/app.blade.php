@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Corona Admin</title>
+    <title>Pannobithi Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('backend/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('backend/assets/vendors/css/vendor.bundle.base.css')}}">
@@ -70,10 +70,10 @@
     <script>
       // alert();
        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-          });
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
       
     </script>
     <script>
@@ -117,12 +117,14 @@
             // Closure to capture the file reader for each iteration
             (function(reader) {
                 reader.onloadend = function () {
-                    var img = document.createElement('img');
-                    img.src = reader.result;
-                    img.style.maxWidth = '100px'; // Adjust the size as needed
-                    img.style.maxHeight = '100px'; // Adjust the size as needed
-                    preview.appendChild(img);
-                };
+                  var img = document.createElement('img');
+                  img.src = reader.result;
+                  img.style.maxWidth = '100px'; // Adjust the size as needed
+                  img.style.maxHeight = '100px'; // Adjust the size as needed
+                  img.style.marginRight = '10px'; // Add right margin for padding
+                  img.style.marginBottom = '10px'; // Add bottom margin for padding
+                  preview.appendChild(img);
+              };
             })(reader);
 
             if (file) {
