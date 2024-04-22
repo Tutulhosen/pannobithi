@@ -9,9 +9,7 @@ use App\Http\Controllers\Controller;
 
 class AdminDashboardController extends Controller
 {
-    public function a(){
-
-    }
+    
     //show dashboard page
     public function dashboard(){
         return view('backend.index');

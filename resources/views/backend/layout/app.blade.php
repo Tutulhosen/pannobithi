@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Corona Admin</title>
+    <title>Pannobithi Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('backend/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('backend/assets/vendors/css/vendor.bundle.base.css')}}">
@@ -27,6 +27,19 @@
 
     {{-- sweet alert link  --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+
+    
+   
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{asset('../../backend/assets/vendors/select2/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('../../backend/assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css')}}">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
 
     @yield('style');
   </head>
@@ -57,10 +70,10 @@
     <script>
       // alert();
        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-          });
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
       
     </script>
     <script>
@@ -90,6 +103,35 @@
       document.getElementById('category-image').addEventListener('change', function () {
           previewImage(this);
       });
+
+      function previewImages() {
+        var preview = document.getElementById('gallery-preview');
+        var files = document.getElementById('gallery').files; // Access file input by ID
+
+        preview.innerHTML = '';
+
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var reader = new FileReader();
+
+            // Closure to capture the file reader for each iteration
+            (function(reader) {
+                reader.onloadend = function () {
+                  var img = document.createElement('img');
+                  img.src = reader.result;
+                  img.style.maxWidth = '100px'; // Adjust the size as needed
+                  img.style.maxHeight = '100px'; // Adjust the size as needed
+                  img.style.marginRight = '10px'; // Add right margin for padding
+                  img.style.marginBottom = '10px'; // Add bottom margin for padding
+                  preview.appendChild(img);
+              };
+            })(reader);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+    }
     </script>
     <script src="{{URL('https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')}}"></script>
     <!-- container-scroller -->
@@ -153,6 +195,16 @@
     <script src="https://kit.fontawesome.com/5b135da28d.js" crossorigin="anonymous"></script>
    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    
+    
+    <!-- Plugin js for this page -->
+   
+    
+    
+    
+    
+    
 
     <!-- Your other scripts -->
     @yield('scripts')

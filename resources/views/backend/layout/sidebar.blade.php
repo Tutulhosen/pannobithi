@@ -65,6 +65,15 @@
           <span class="menu-title">Dashboard</span>
         </a>
       </li>
+
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{route('admin.slider.list')}}">
+          <span class="menu-icon">
+            <i class="mdi mdi-android-studio"></i>
+          </span>
+          <span class="menu-title">Slider</span>
+        </a>
+      </li>
       
       <li class="nav-item menu-items">
         <a class="nav-link" href="{{route('admin.category.list')}}">
@@ -81,6 +90,24 @@
             <i class="mdi mdi-android-studio"></i>
           </span>
           <span class="menu-title">Sub Category</span>
+        </a>
+      </li>
+
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{route('admin.product.list')}}">
+          <span class="menu-icon">
+            <i class="mdi mdi-android-studio"></i>
+          </span>
+          <span class="menu-title">Product</span>
+        </a>
+      </li>
+
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{route('admin.user.list')}}">
+          <span class="menu-icon">
+            <i class="mdi mdi-android-studio"></i>
+          </span>
+          <span class="menu-title">User</span>
         </a>
       </li>
       
