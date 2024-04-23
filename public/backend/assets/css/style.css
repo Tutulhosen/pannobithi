@@ -21133,3 +21133,19 @@ div.tagsinput {
   flex-grow: 1; }
 
 /*# sourceMappingURL=maps/style.css.map */
+
+.form-group input[type="text"] {
+  color: white !important;
+}
+.form-group input[type="text"]:focus {
+  color: white !important;
+}
+.form-group .form-control {
+  color: white !important;
+}
+.form-group .form-control:focus {
+  color: white !important;
+}
+a:hover{
+  text-decoration: none;
+}

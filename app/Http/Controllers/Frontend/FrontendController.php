@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class FrontendController extends Controller
 {
     
     public function home(){
-        return view('home');
+        $data['slider']=DB::table('sliders')->where('status', 1)->get();
+        
+        return view('home')->with($data);
     }
     
     public function showSubCategory($id){
