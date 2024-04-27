@@ -1,4 +1,4 @@
-<a href="{{ route('product.show', 1) }}" class="relative bg-white hover:drop-shadow-lg w-[22%]">
+<a href="{{ route('product.show', 1) }}" class="relative bg-white hover:drop-shadow-lg  transition-all duration-500 rounded-lg">
     <div class="relative">
         <div class="block">
             <img class="w-full h-50 object-cover rounded-t-lg" src="{{ asset('dummy_image.jpg') }}" alt="product name">
