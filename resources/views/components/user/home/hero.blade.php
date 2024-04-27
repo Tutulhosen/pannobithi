@@ -53,11 +53,11 @@
         </ul>
     </div>
     <div class="w-[80%] ">
-        <x-user.home.slider />
+        <x-user.home.slider :slider="$hero['slider']" />
     </div>
 </section>
-<div class="flex justify-center pb-5">
+{{-- <div class="flex justify-center pb-5">
     <a href="#" class="w-[85%]">
         <img src="{{ asset('home_sale_banner.jpg') }}" class="w-full h-48 rounded-t-badge rounded-b-lg" alt="Sale Banner">
     </a>
-</div>
+</div> --}}

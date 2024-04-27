@@ -31,9 +31,17 @@
         </a>
     </div>
     <div class="flex items-center justify-between gap-2">
-        <x-utility.productcard />
-        <x-utility.productcard />
-        <x-utility.productcard />
-        <x-utility.productcard />
+        <div class="w-1/4 bg-white hover:drop-shadow-lg">
+            <x-utility.productcard />
+        </div>
+        <div class="w-1/4 bg-white hover:drop-shadow-lg">
+            <x-utility.productcard />
+        </div>
+        <div class="w-1/4 bg-white hover:drop-shadow-lg">
+            <x-utility.productcard />
+        </div>
+        <div class="w-1/4 bg-white hover:drop-shadow-lg">
+            <x-utility.productcard />
+        </div>
     </div>
 </section>
