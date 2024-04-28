@@ -1,34 +1,36 @@
 <style>
 
-    .swiper {
-      width: 100%;
-      height: 50vh;
-    }
+  .swiper-slide {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      height: 350px; /* Adjust height as needed */
+      
+  }
 
-    .swiper-slide {
+  .slide-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
-      font-size: 18px;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+      
+  }
 
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  .slide-content h2 {
+      font-size: 32px; /* Adjust font size */
+      margin-bottom: 10px;
+  }
+
+  .slide-content p {
+      font-size: 18px; /* Adjust font size */
+  }
+
   </style>
 
 
 
-<?php
 
-  var_dump($slider);
-
-?>
 
 {{-- @dd($slider) --}}
 
@@ -36,15 +38,18 @@
 
 <!-- Swiper -->
 <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <a href="#" class="swiper-slide">Slide 1</a>
-      <a href="#" class="swiper-slide">Slide 2</a>
-      <a href="#" class="swiper-slide">Slide 3</a>
-      <a href="#" class="swiper-slide">Slide 4</a>
-      <a href="#" class="swiper-slide">Slide 5</a>
-        
-    </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
+  <div class="swiper-wrapper">
+      @foreach ($slider as $item)
+      <div class="swiper-slide" style="background-image: url('{{ asset('images/slider/' . $item->image_name) }}');">
+          <div class="slide-content" style="color: {{$item->text_color}};">
+              <h2>{{$item->title}}</h2>
+              <p>{{$item->slogan}}</p>
+          </div>
+      </div>
+      @endforeach
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
 </div>
+

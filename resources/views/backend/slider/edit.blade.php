@@ -61,6 +61,10 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="name">Text Color</label>
+                        <input type="text" class="form-control" id="text_color" value="{{$slider_info->text_color}}" placeholder="#000000">
+                    </div>
+                    <div class="form-group">
                         <label>Category Image</label>
                         <input type="file" name="img[]" id="category-image" class="file-upload-default">
                         <div class="input-group col-xs-12">
@@ -103,6 +107,7 @@
             var slogan = $('#slogan').val();
             var category_id = $('#category_id').val();
             var sub_category_id = $('#sub_category_id').val();
+            var text_color = $('#text_color').val();
             var image = $('#category-image')[0].files[0];
 
             if (title == '') {
@@ -127,6 +132,7 @@
             formData.append('slogan', slogan);
             formData.append('category_id', category_id);
             formData.append('sub_category_id', sub_category_id);
+            formData.append('text_color', text_color);
             formData.append('image', image);
             formData.append('_token', '{{ csrf_token() }}'); 
 

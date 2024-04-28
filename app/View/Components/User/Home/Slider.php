@@ -24,6 +24,7 @@ class Slider extends Component
      */
     public function render(): View|Closure|string
     {
+       
         return view('components.user.home.slider');
     }
 }

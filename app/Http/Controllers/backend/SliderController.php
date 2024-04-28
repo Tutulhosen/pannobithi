@@ -29,6 +29,7 @@ class SliderController extends Controller
         $title = $request->title;
         $category_id = $request->category_id;
         $sub_category_id = $request->sub_category_id;
+        $text_color = $request->text_color;
         $slogan = $request->slogan;
         if (!empty($image)) {
             $imageName = md5(time().'_'.rand()).'.'.$image->getClientOriginalExtension();
@@ -42,6 +43,7 @@ class SliderController extends Controller
             'slogan' =>$slogan,
             'category_id' =>$category_id,
             'sub_cat_id' =>$sub_category_id,
+            'text_color' =>$text_color,
             'image_name' =>$imageName,
             
         ]);
@@ -75,6 +77,7 @@ class SliderController extends Controller
         $title = $request->title;
         $category_id = $request->category_id;
         $sub_category_id = $request->sub_category_id;
+        $text_color = $request->text_color;
         $slogan = $request->slogan;
         if (!empty($image)) {
             
@@ -95,6 +98,7 @@ class SliderController extends Controller
                 'slogan' =>$slogan,
                 'category_id' =>$category_id,
                 'sub_cat_id' =>$sub_category_id,
+                'text_color' =>$text_color,
                 'image_name' =>$imageName,
             ]);
         }else {
@@ -105,6 +109,7 @@ class SliderController extends Controller
                 'slogan' =>$slogan,
                 'category_id' =>$category_id,
                 'sub_cat_id' =>$sub_category_id,
+                'text_color' =>$text_color,
                
             ]);
           

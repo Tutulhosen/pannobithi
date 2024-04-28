@@ -21,7 +21,11 @@
     <link rel="stylesheet" href="{{asset('backend/assets/css/style.css')}}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('backend/assets/images/favicon.png')}}" />
-
+    
+    {{-- color picker  --}}
+    <!-- Spectrum CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css">
+    
     {{-- toster link --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
@@ -67,6 +71,13 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
+
+    <!-- jQuery -->
+    
+
+    
+
+    
     <script>
       // alert();
        $.ajaxSetup({
@@ -134,6 +145,9 @@
     }
     </script>
     <script src="{{URL('https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')}}"></script>
+
+    <!-- Spectrum JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.js"></script>
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="{{asset('backend/assets/vendors/js/vendor.bundle.base.js')}}"></script>
