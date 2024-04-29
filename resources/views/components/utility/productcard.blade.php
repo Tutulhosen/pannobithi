@@ -1,3 +1,5 @@
+
+
 <a href="{{ route('product.show', 1) }}" class="relative bg-white   transition-all duration-500 rounded-lg">
     <div class="relative">
         <div class="block">

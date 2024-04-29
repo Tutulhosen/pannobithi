@@ -11,9 +11,11 @@ class Recentlyadded extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public $data;
+    public function __construct($data)
     {
-        //
+        $this -> data = $data;
+        return $this;
     }
 
     /**
@@ -21,6 +23,7 @@ class Recentlyadded extends Component
      */
     public function render(): View|Closure|string
     {
+        // dd($this->data['all_products']);
         return view('components.user.home.recentlyadded');
     }
 }
