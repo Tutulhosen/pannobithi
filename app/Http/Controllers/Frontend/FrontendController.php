@@ -10,9 +10,24 @@ class FrontendController extends Controller
 {
     
     public function home(){
-        $data['slider']=DB::table('sliders')->where('status', 1)->get();
+        $hero['slider']=DB::table('sliders')->where('status', 1)->get();
+        $hero['category']=DB::table('category')->where('status', 1)->get();
+        $hero['sub_category']=DB::table('subcategory')->where('status', 1)->get();
+
+        $all_products=DB::table('products')->latest()->get();
         
-        return view('home')->with($data);
+        $all_products_with_thmnl_array=[];
+        foreach ($all_products as  $value) {
+            $tmnl=DB::table('gallery')->where('product_id', $value->id)->select('image_name')->first();
+            $each_data['id']=$value->id;
+            $each_data['title']=$value->title;
+            $each_data['price']=$value->price;
+            $each_data['image']=$tmnl->image_name;
+            array_push($all_products_with_thmnl_array, $each_data);
+        }
+        // $data['all_products']=$all_products_with_thmnl_array;
+        $data['all_products']='Our Latest Products';
+        return view('home', compact('hero', 'data'));
     }
     
     public function showSubCategory($id){
