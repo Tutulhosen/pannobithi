@@ -2,5 +2,6 @@
     <x-user.home.hero :hero="$hero" />
     <x-user.home.feature />
     {{-- <x-user.home.flashsale /> --}}
-    <x-user.home.recentlyadded :data="$data" />
+    
+    <x-user.home.recentlyadded :product="$data" />
 </x-user.layout>

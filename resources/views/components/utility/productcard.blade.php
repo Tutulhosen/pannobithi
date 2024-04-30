@@ -9,13 +9,13 @@
     <div class="px-2 py-2">
         <div class="text-14 font-semibold text-slate-700">
             <div class="hover:text-slate-900">
-                product name
+                {{$singleProduct['title']}}
 
             </div>
         </div>
         <div class="text-14 font-semibold text-slate-700">
             <span>
-                product price
+                {{$singleProduct['price']}}
             </span>
         </div>
     </div>

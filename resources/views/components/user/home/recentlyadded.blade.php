@@ -5,10 +5,14 @@
     </h3>
 
     <div class="flex flex-wrap justify-between gap-3">
-        @if (!empty($data['all_products']))
-            @foreach($data['all_products'] as $product)
+        
+        @if (!empty($product['all_products']))
+            @foreach($product['all_products'] as $single_product)
                 <div class="w-[24%] bg-white hover:drop-shadow-lg">
-                    <x-utility.productcard  />
+                    {{-- <x-post id="{{ $post->id }}" title="{{ $post->title }}" /> --}}
+                        <x-utility.productcard :singleProduct="$single_product"/>
+                        
+                        
                     
                 </div>
             @endforeach

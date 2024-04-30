@@ -25,8 +25,8 @@ class FrontendController extends Controller
             $each_data['image']=$tmnl->image_name;
             array_push($all_products_with_thmnl_array, $each_data);
         }
-        // $data['all_products']=$all_products_with_thmnl_array;
-        $data['all_products']='Our Latest Products';
+        $data['all_products']=$all_products_with_thmnl_array;
+       
         return view('home', compact('hero', 'data'));
     }
     
